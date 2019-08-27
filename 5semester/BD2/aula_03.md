@@ -55,3 +55,19 @@ SQL Server:
 ``` SQL
     SELECT c1, c2 FROM Tb1723015 WHERE c1=1500
 ```
+
+## Oracle  - Subconsultas
+
+### 1 - Not in
+``` SQL
+    select idcliente, nome from cliente 
+    where idcliente not in (select id_cliente from pedido);
+```
+
+### 2 - Not in with Inner Join
+``` SQL
+    SELECT c.nome, p.id_cliente FROM pedido p, cliente c
+    WHERE c.idcliente = p.id_cliente 
+    AND p.id_cliente NOT IN (SELECT id_cliente FROM pedido
+                            WHERE id_vendedor <> 4)
+```
