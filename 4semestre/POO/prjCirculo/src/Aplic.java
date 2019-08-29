@@ -1,7 +1,6 @@
 
 import fatec.poo.model.Circulo;
 import java.util.Scanner;
-
 /**
  *
  * @author 0030481723013
@@ -18,10 +17,7 @@ public class Aplic {
         int opcao;
         
         System.out.println("Digite a medida do raio: ");
-        medRaio = entrada.nextDouble();
-        
-        
-        objCirc.setRaio(medRaio);
+        objCirc.setRaio(entrada.nextDouble());
         
         do {
             System.out.println("\n\n1 - Exibir área");
@@ -36,9 +32,12 @@ public class Aplic {
                     System.out.println("Área: " + objCirc.calcArea() + 
                             "\n Raio: " + objCirc.getRaio());
                     break;
-                    
                 case 2:
                     System.out.println("Base: " + objCirc.calcPerimetro()+ 
+                            "\n Raio: " + objCirc.getRaio());
+                    break;
+                case 3:
+                    System.out.println("Base: " + objCirc.calcDiametro()+ 
                             "\n Raio: " + objCirc.getRaio());
                     break;
             }
