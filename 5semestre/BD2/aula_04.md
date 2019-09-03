@@ -86,6 +86,7 @@
     INNER JOIN TB_Depto d
     ON f.codDepto = d.codDepto
     AND f.dataAdmissao > TO_CHAR(f.dataAdmissao, 'YYYY')
+    // Parei aqui
 ```
 
 ### Anotações em Geral
