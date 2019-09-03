@@ -78,6 +78,16 @@
     SELECT * FROM TB_FuncProj
 ```
 
+
+### 2.A - Junção
+```SQL
+    SELECT f.nomeFunc, f.dataAdmissao, f.codDepto, d.nomeDepto
+    FROM TB_Funcionarios f
+    INNER JOIN TB_Depto d
+    ON f.codDepto = d.codDepto
+    AND f.dataAdmissao > TO_CHAR(f.dataAdmissao, 'YYYY')
+```
+
 ### Anotações em Geral
 
 * Para modificar alguma propriedade de coluna:
