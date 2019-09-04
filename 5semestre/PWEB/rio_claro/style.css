@@ -1,0 +1,37 @@
+
+body {
+    font-family: 'Noto Serif', serif;
+    display: flex;
+    justify-content: center;
+}
+
+.body-title__h1, .article-header__h2, .article-header__h3, .footer__p{
+    text-align: center;
+}
+
+.article-header__p {
+    text-align: justify;
+
+}
+
+.article-section__p {
+    text-align: justify;
+}
+
+.footer__p {
+    font-size: 0.7em;
+}
+
+.wrap {
+    max-width: calc(100% - 80px);
+}
+
+img {
+    max-width: 100%;
+}
+
+figure figcaption {
+    font-size: 0.6em;
+    text-align: center;
+}
+
