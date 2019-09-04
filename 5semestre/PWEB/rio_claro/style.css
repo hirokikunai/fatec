@@ -30,6 +30,12 @@ img {
     max-width: 100%;
 }
 
+figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 figure figcaption {
     font-size: 0.6em;
     text-align: center;
