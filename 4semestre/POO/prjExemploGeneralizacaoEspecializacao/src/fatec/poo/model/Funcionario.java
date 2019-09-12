@@ -11,6 +11,7 @@ public abstract class Funcionario {
     private int registro;
     private String nome;
     private String dtAdmissao;
+    private String cargo;
 
     public Funcionario(int registro, String nome, String dtAdmissao) {
         this.registro = registro;
@@ -29,8 +30,25 @@ public abstract class Funcionario {
     public double calcSalLiquido(){
         return(calcSalBruto() - calcDesconto());
     }
-    
-    
-    
+
+    public int getRegistro() {
+        return registro;
+    }
+
+    public String getDtAdmissao() {
+        return dtAdmissao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
     
 }

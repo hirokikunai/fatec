@@ -25,4 +25,13 @@ public class FuncionarioHorista extends Funcionario{
         this.qtdeHorTrab = qtdeHorTrab;
     }
     
+    public double calcGratificacao() {
+        return this.calcSalBruto()*0.075;
+    }
+    
+    @Override
+    public double calcSalLiquido() {
+        return (super.calcSalLiquido() + this.calcGratificacao());
+    }
+    
 }
