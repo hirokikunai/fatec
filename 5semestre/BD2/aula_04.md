@@ -12,7 +12,7 @@
         nomeFunc VARCHAR2(50) NOT NULL,
         sexo VARCHAR2(1) NOT NULL,
         dataAdmissao DATE DEFAULT (sysdate),
-        salario NUMBER(5, 2),
+        salario NUMBER(7, 2),
         codDepto NUMBER(3) NOT NULL
         CONSTRAINT fk_depto REFERENCES TB_Depto(codDepto)
     )
@@ -44,110 +44,77 @@
 ### 1.1 - Inserir 3 Linhas em cada
 
 ``` SQL
-    INSERT ALL 
-    INTO TB_Depto (codDepto, nomeDepto) VALUES (1, 'Setor de Desenvolvimento')
-    INTO TB_Depto (codDepto, nomeDepto) VALUES (2, 'Setor de Logística')
-    INTO TB_Depto (codDepto, nomeDepto) VALUES (3, 'Setor de Administração')
-    SELECT * FROM TB_Depto
+    INSERT INTO TB_Depto VALUES (1, 'Setor de Desenvolvimento');
+    INSERT INTO TB_Depto VALUES (2, 'Setor de Logística');
+    INSERT INTO TB_Depto VALUES (3, 'Setor de Administração');
 
-    INSERT ALL
-    INTO TB_Funcionario (codFunc, nomeFunc, sexo, dataAdmissao, salario, codDepto)
-    VALUES (1, 'Angelino', 'M', '27/04/1997', 2000, 1)
-    INTO TB_Funcionario (codFunc, nomeFunc, sexo, dataAdmissao, salario, codDepto)
-    VALUES (2, 'Felipe', 'M', '06/05/1990', 5000, 1)
-    INTO TB_Funcionario (codFunc, nomeFunc, sexo, dataAdmissao, salario, codDepto)
-    VALUES (3, 'Marcus', 'M', '07/05/2000', 500, 2)
-    SELECT * FROM TB_Funcionario
+    INSERT INTO TB_Funcionario VALUES (1, 'Angelino', 'M', '27/04/1997', 2000, 1);
+    INSERT INTO TB_Funcionario VALUES (2, 'Felipe', 'M', '06/05/1990', 5000, 1);
+    INSERT INTO TB_Funcionario VALUES (3, 'Marcus', 'M', '07/05/2000', 500, 2);
 
-    INSERT ALL
-    INTO TB_Projeto (codProjeto, descricao)
-    VALUES (1, 'Projeto em Java - fuuuuuu')
-    INTO TB_Projeto (codProjeto, descricao)
-    VALUES (2, 'Projeto em Delphi')
-    INTO TB_Projeto (codProjeto, descricao)
-    VALUES (3, 'Projeto em JavaScript')
-    SELECT * FROM TB_Projeto
+    INSERT INTO TB_Projeto VALUES (1, 'Projeto em Java - fuuuuuu');
+    INSERT INTO TB_Projeto VALUES (2, 'Projeto em Delphi');
+    INSERT INTO TB_Projeto VALUES (3, 'Projeto em JavaScript');
 
-    INSERT ALL
-    INTO TB_FuncProj (codFunc, codProjeto, tempoAlocacao, bonus_sal)
-    VALUES (1, 3, '10/05/2015', 100) 
-    INTO TB_FuncProj (codFunc, codProjeto, tempoAlocacao, bonus_sal)
-    VALUES (2, 2, '10/05/2016', 10)
-    INTO TB_FuncProj (codFunc, codProjeto, tempoAlocacao, bonus_sal)
-    VALUES (3, 1, '10/05/2010', 1000) 
-    SELECT * FROM TB_FuncProj
+    INSERT INTO TB_FuncProj VALUES (1, 3, '10/05/2015', 100); 
+    INSERT INTO TB_FuncProj VALUES (2, 2, '10/05/2016', 10);
+    INSERT INTO TB_FuncProj VALUES (3, 1, '10/05/2010', 1000);
 ```
 
 
 ### 2.A - Junção
 ```SQL
     SELECT f.nomeFunc, f.dataAdmissao, f.codDepto, d.nomeDepto
-    FROM TB_Funcionarios f
+    FROM TB_Funcionario f
     INNER JOIN TB_Depto d
     ON f.codDepto = d.codDepto
-    AND f.dataAdmissao > TO_CHAR(f.dataAdmissao, 'YYYY')
-    // Parei aqui
+    AND to_char(f.dataAdmissao, 'YYYY') > '1975';
 ```
 
-- 
 ### 2.B - Junção
 #### Exibir o nome dos funcionários e a descrição de cada projeto os quais ele participa ordenado pela  descrição do projeto e pelo nome do funcionário
 ```SQL
     SELECT f.nomeFunc, p.descricao
-    FROM TB_Funcionarios f, TB_Projeto p
+    FROM TB_Funcionario f
     INNER JOIN TB_FuncProj fp
-    ON fp.codFunc = f.codFunc 
-    AND fp.codProjeto = p.codProjeto
-    ORDER BY p.descricao, f.nomeFunc;
+    ON fp.codFunc = f.codFunc
+    INNER JOIN TB_Projeto p
+    ON fp.codProjeto = p.codProjeto
+    ORDER BY p.descricao, f.nomeFunc;Func;
 ```
 
 ### 3.A - Visões
 #### Criar uma visão para listar o codigo do funcionário, codigo do projeto em que ele trabalha e o bonus-salário aumentado em 15%.
 
 ```SQL
-    CREATE VIEW view_funcSalarioBonus15 AS 
-        SELECT 
-            f.codFunc,
-            fp.codProjeto,
-            fp.bonus_sal * 1.15 AS bonus_sal_15
-        FROM 
-            TB_Funcionarios f,
-            TB_Projeto p
-        INNER JOIN 
-            TB_FuncProj fp ON fp.codFunc = f.codFunc;
+    CREATE VIEW view_funcSalarioBonus 
+    AS SELECT fp.codFunc, fp.codProjeto, fp.bonus_sal * 1.15 AS bonus_sal
+    FROM TB_FuncProj fp
 ```
 
 ### 3.B - Visões
 #### - Criar uma visão para listar o código do funcionário, nome do funcionário e a qtde de projetos que ele está alocado , mas só para os funcionários alocados em mais de 2 projetos
 
 ```SQL
-    CREATE VIEW view_funcAlocacao2 AS 
-        SELECT 
-            f.codFunc
-            f.nome,
-            COUNT(fp.codProjeto) AS numero_projetos
-        FROM 
-            TB_Funcionarios f,
-        INNER JOIN 
-            TB_FuncProj fp ON fp.codFunc = f.codFunc
-        HAVING
-            COUNT(fp.codProjeto) > 2
-        GROUP BY f.codFunc;
+    CREATE VIEW view_funcAlocacao 
+    AS 
+    SELECT f.codFunc, f.nomeFunc, COUNT(fp.codProjeto) AS numero_projetos
+    FROM TB_Funcionario f
+    INNER JOIN TB_FuncProj fp 
+    ON f.codFunc = fp.codFunc
+    GROUP BY f.codFunc, f.nomeFunc
+    HAVING COUNT(fp.codProjeto) > 2
 ```
 
 ### 4.A - Subconsultas
 #### - Listar o nome do funcionário que tem o salário menor que a média.
 
 ```SQL
-    SELECT 
-        f1.nome
-    FROM
-        TB_Funcionarios f1
-    WHERE f1.salario < (
-        SELECT 
-            AVG(f2.salario) AS media_salario
-        FROM 
-            TB_Funcionarios f2
+    SELECT f.nomeFunc
+    FROM TB_Funcionario f
+    WHERE f.salario < (
+        SELECT AVG(f2.salario) AS media_salario
+        FROM TB_Funcionario f2
     )
 ```
 
@@ -155,24 +122,16 @@
 #### - Listar o nome dos funcionários que trabalham no mesmo projeto do funcionário de nome ‘José da Silva’ (inclua dados para fazer este teste).
 
 ```SQL
-    SELECT 
-        f2.nome
-    FROM
-        TB_Funcionarios f2
-    INNER JOIN
-        TB_FuncProj fp2 ON fp2.codFunc = f2.codFunc
-    WHERE fp2.codProjeto = (
-        SELECT fp1.codProjeto
-        FROM TB_FuncProj fp1
-        WHERE fp1.codFunc = (
-            SELECT 
-                f1.codFunc
-            FROM 
-                TB_Funcionarios f1
-            WHERE
-                f1.nomeFunc = 'José da Silva'
-            LIMIT 1
-        )
+    SELECT f.nomeFunc
+    FROM TB_Funcionario f
+    INNER JOIN TB_FuncProj fp 
+    ON f.codFunc = fp.codFunc
+    WHERE fp.codProjeto IN (
+        SELECT fp2.codProjeto
+        FROM TB_Funcionario f2
+        INNER JOIN TB_FuncProj fp2
+        ON f2.codFunc = fp2.codFunc
+        WHERE UPPER(f2.nomeFunc) <> 'Angelino'
     )
 ```
 
@@ -180,15 +139,20 @@
 #### - Listar o nome dos funcionários que não tem projetos alocados. Usando NOT IN
 
 ```SQL
-    SELECT 
-        f.nome
-    FROM
-        TB_Funcionarios f
-    WHERE f.codFunc NOT IN (
-        SELECT 
-            fp.codFunc
-        FROM
-            TB_FuncProj fp
+    SELECT f.nome
+    FROM TB_Funcionario f
+    WHERE f.codFunc 
+    NOT IN (
+        SELECT fp.codFunc 
+        FROM TB_FuncProj fp
+    );
+
+    SELECT * 
+    FROM TB_Funcionario f
+    WHERE NOT EXISTS ( 
+        SELECT codFunc
+        FROM TB_FuncProj fp
+        WHERE fp.codFunc = f.codFunc
     );
 ```
 
@@ -212,7 +176,7 @@
 
 ```SQL
     UPDATE
-        TB_Funcionarios f
+        TB_Funcionario f
     SET 
         f.salario = f.salario + 200
     WHERE f.codFunc = (
