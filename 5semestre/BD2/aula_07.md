@@ -1,7 +1,14 @@
 # Aula 07/10/2019
 
-### 1. Escreva uma stored procedure para inserir um item de pedido. Esta deve receber como parametro o num. do pedido, codproduto, e a quantidade. O preço unitario deve ser obtido atraves da tabela produto.
+### 1. 
 
+#### a) Criar o campo pco_unit number(6,2) na tabela de item pedido.
+
+```SQL
+ALTER TABLE tb_item_pedido ADD  pco_unit NUMBER(6,2)
+```
+
+#### b) Escreva uma stored procedure para inserir um item de pedido. Esta deve receber como parametro o num. do pedido, codproduto, e a quantidade. O preço unitario deve ser obtido atraves da tabela produto.
 
 ```SQL
     CREATE OR REPLACE PROCEDURE INSERE_ITEM (Pnumpedido number, Pcodproduto number, Pqtde number)
