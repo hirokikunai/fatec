@@ -10,9 +10,18 @@ public abstract class Funcionario {
    private String dtAdmissao;
    private String cargo;
    private Departamento departamento;
-
+   private Projeto projeto;
+   
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
+    }
+    
+    public void setProjeto(Projeto projeto) {
+        this.projeto = projeto;
+    }
+    
+    public Projeto getProjeto() {
+        return projeto;
     }
 
     public Departamento getDepartamento() {
@@ -45,9 +54,6 @@ public abstract class Funcionario {
         return cargo;
     }
 
-   
-    
-    
     abstract public double calcSalBruto();
    
     public double calcDesconto(){

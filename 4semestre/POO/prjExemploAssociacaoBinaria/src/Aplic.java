@@ -3,6 +3,7 @@ import fatec.poo.model.Departamento;
 import fatec.poo.model.FuncionarioComissionado;
 import fatec.poo.model.FuncionarioHorista;
 import fatec.poo.model.FuncionarioMensalista;
+import fatec.poo.model.Projeto;
 
 
 /**
@@ -71,9 +72,23 @@ public class Aplic {
        //objeto da classe Departaqmento com 1 ou mais (1..*)
        //objetos da classe FuncionarioHorista, FuncionarioMensalista
        //e FuncionarioComissionado
+       dep1.addFuncionario(funcCom);
+       dep1.addFuncionario(funcHor);
+       dep1.addFuncionario(funcMen);
        
-        
+       dep1.listar();
        
-    }
-    
+       Projeto proj1 = new Projeto(1, "Oculus Oracle");
+       proj1.setDtInicio("21/01/2019");
+       proj1.setDtTermino("20/09/2019");
+       //funcCom.setProjeto(proj1);
+       //funcHor.setProjeto(proj1);
+       //funcMen.setProjeto(proj1);
+       proj1.addFuncionario(funcHor);
+       proj1.addFuncionario(funcCom);
+       proj1.addFuncionario(funcMen);
+       
+       proj1.listar();
+      
+    }  
 }
