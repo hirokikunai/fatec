@@ -168,7 +168,7 @@ public class GuiAluno extends javax.swing.JFrame {
                     .addComponent(btnCalcular)
                     .addComponent(btnLimpar)
                     .addComponent(btnSair))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblMedia, lblSituacao, txtNota4});
