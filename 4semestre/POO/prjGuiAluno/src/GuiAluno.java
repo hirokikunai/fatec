@@ -1,3 +1,6 @@
+
+import java.text.DecimalFormat;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -181,6 +184,7 @@ public class GuiAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNota3ActionPerformed
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        DecimalFormat df = new DecimalFormat("0.0");
         double nota1, nota2, nota3, nota4, media;
         nota1 = Double.parseDouble(txtNota1.getText());
         nota2 = Double.parseDouble(txtNota2.getText());
@@ -189,7 +193,7 @@ public class GuiAluno extends javax.swing.JFrame {
         
         media = (nota1 + nota2 + nota3 + nota4)/4;
         
-        lblMedia.setText(String.valueOf(media));
+        lblMedia.setText(String.valueOf(df.format(media)));
         if (media>=6) {
             lblSituacao.setText("Aprovado");
         } else {
@@ -197,10 +201,12 @@ public class GuiAluno extends javax.swing.JFrame {
         }
         
         btnLimpar.setEnabled(true);
+        btnCalcular.setEnabled(false);
         
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        txtRA.setText("");
         txtNota1.setText("");
         txtNota2.setText("");
         txtNota3.setText("");
@@ -208,10 +214,12 @@ public class GuiAluno extends javax.swing.JFrame {
         lblMedia.setText("");
         lblSituacao.setText("");
         btnLimpar.setEnabled(false);
+        btnCalcular.setEnabled(true);
+
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     /**
