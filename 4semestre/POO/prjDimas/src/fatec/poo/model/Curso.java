@@ -5,6 +5,8 @@
  */
 package fatec.poo.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author bruno
@@ -17,10 +19,17 @@ public class Curso {
     private String DataVigencia;
     private double ValorHoraInstrutor;
     private String Programa;
+    private ArrayList<Turma> turmas;
 
     public Curso(String Sigla, String Nome) {
         this.Sigla = Sigla;
         this.Nome = Nome;
+        turmas = new ArrayList();
+    }
+    
+    public void setTurma(Turma turma) {
+        turmas.add(turma);
+        turma.setCurso(this);
     }
 
     public void setSigla(String Sigla) {

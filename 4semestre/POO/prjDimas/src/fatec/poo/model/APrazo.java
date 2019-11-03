@@ -9,12 +9,18 @@ package fatec.poo.model;
  *
  * @author bruno
  */
-public class APrazo {
+public class APrazo extends FormaPagamento{
     private double Valor;
     private String DtVencimento;
     private double TaxaJuros;
     private int QtdeMensalidade;
+    private Matricula matricula;
 
+    public void setMatricula (Matricula matricula) {
+        this.matricula = matricula;
+        matricula.setFormaPagamento(this);
+    }
+    
     public void setValor(double Valor) {
         this.Valor = Valor;
     }
