@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atividade 7</title>
+    <link rel="stylesheet" href="main.css">
+    <script>
+        function validate() {
+            if (document.forms[0].elements.input_name.value.length < 10) {
+                window.alert("O nome deve ter no mínimo 10 caracteres");
+            } else if (!document.forms[0].elements.input_email.checkValidity() || 
+                       !document.forms[0].elements.input_email.value.length > 0) {
+                window.alert("Campo e-mail invalido");
+            } else if (document.forms[0].elements.input_comentario.value.length < 20) {
+                window.alert("O comentario deve ter no mínimo 20 caracteres");
+            } else if (document.forms[0].elements.input_comentario.value.length < 20) {
+                window.alert("O comentario deve ter no mínimo 20 caracteres");
+            } else if (document.forms[0].elements.input_radiobtn.value == "") {
+                window.alert("Por favor, diga se você gostou da página, sim ou não");
+            }
+            
+            else {
+                window.alert("Obrigado volte sempre!");
+            }
+        }
+
+        window.onload = () => {
+            document.forms[0].elements.btn_enviar.addEventListener("click", (e) => {
+                e.preventDefault();
+                validate();
+            });
+        }
+        
+
+
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="01.html">
+            <label name="lbl_name">Nome</label>
+            <input name="input_name" type="text" minlength="10"/>
+            <label name="lbl_email">Email</label>
+            <input name="input_email" type="email"/>
+            <label name="lbl_comentario">Comentario</label>
+            <input name="input_comentario" type="text" minlength="20"/>
+            <label name="lbl_radiobtn">Você gostou desta página?</label>
+            <div class="radiogrp">
+                <input class="radiobtn" name="input_radiobtn" type="radio" value="1" required/>Sim
+                <input class="radiobtn" name="input_radiobtn" type="radio" value="0" required/>Não
+            </div>
+   
+            <input name="btn_enviar" class="btn_enviar" type="submit" />
+            <input name="btn_limpar" class="btn_limpar" type="reset" />
+        </form>
+    </div>
+       
+</body>
+</html>
