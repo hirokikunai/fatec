@@ -9,7 +9,7 @@ package fatec.poo.model;
  *
  * @author bruno
  */
-public class AVista extends FormaPagamento{
+public class AVista {
     private double Valor;
     private int Agencia;
     private int NCheque;
@@ -18,7 +18,7 @@ public class AVista extends FormaPagamento{
 
     public void setMatricula (Matricula matricula) {
         this.matricula = matricula;
-        matricula.setFormaPagamento(this);
+        matricula.setAVista(this);
     }
 
     public void setValor(double Valor) {
@@ -36,6 +36,4 @@ public class AVista extends FormaPagamento{
     public void setPreData(String PreData) {
         this.PreData = PreData;
     }
-    
-    
 }

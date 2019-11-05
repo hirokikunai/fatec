@@ -15,7 +15,8 @@ public abstract class Matricula {
     private double Nota;
     private Aluno aluno;
     private Turma turma;
-    private FormaPagamento fp;
+    private AVista avista;
+    private APrazo aprazo;
 
     public Matricula(String Data) {
         this.Data = Data;
@@ -30,16 +31,20 @@ public abstract class Matricula {
         this.turma = turma;
     }
 
-    public void setQtdeFaltas(int QtdeFaltas) {
+    public void setQtdeFaltas (int QtdeFaltas) {
         this.QtdeFaltas = QtdeFaltas;
     }
 
-    public void setNota(double Nota) {
+    public void setNota (double Nota) {
         this.Nota = Nota;
     }
     
-    public void setFormaPagamento(FormaPagamento fp) {
-        this.fp = fp;
+    public void setAVista (AVista avista) {
+        this.avista = avista;
+    }
+    
+    public void setAPrazo (APrazo aprazo) {
+        this.aprazo = aprazo;
     }
     
     abstract public void EmitirCarne();
