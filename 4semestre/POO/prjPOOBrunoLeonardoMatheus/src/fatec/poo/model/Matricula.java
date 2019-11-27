@@ -9,7 +9,7 @@ package fatec.poo.model;
  *
  * @author bruno
  */
-public abstract class Matricula {
+public class Matricula {
     private String Data;
     private int QtdeFaltas;
     private double Nota;
@@ -47,6 +47,6 @@ public abstract class Matricula {
         this.aprazo = aprazo;
     }
     
-    abstract public void EmitirCarne();
+    public void EmitirCarne() {};
     
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author bruno
  */
-abstract public class Turma {
+public class Turma {
     private String SiglaTurma;
     private String Descricao;
     private String DataInicio;
@@ -66,7 +66,45 @@ abstract public class Turma {
     public void setObservacoes(String Observacoes) {
         this.Observacoes = Observacoes;
     }
+
+    public String getSiglaTurma() {
+        return SiglaTurma;
+    }
+
+    public String getDescricao() {
+        return Descricao;
+    }
+
+    public String getDataInicio() {
+        return DataInicio;
+    }
+
+    public String getDataTermino() {
+        return DataTermino;
+    }
+
+    public String getPeriodo() {
+        return Periodo;
+    }
+
+    public int getQtdVagas() {
+        return QtdVagas;
+    }
+
+    public String getObservacoes() {
+        return Observacoes;
+    }
+
+    public Instrutor getInstrutor() {
+        return instrutor;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
     
-    public abstract void EmitirListaFrequencia();
+    
+    
+    public void EmitirListaFrequencia() {};
     
 }

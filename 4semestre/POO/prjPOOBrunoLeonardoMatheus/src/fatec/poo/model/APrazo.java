@@ -33,5 +33,9 @@ public class APrazo {
         this.TaxaJuros = TaxaJuros/100;
     }
     
+    public void setQtdeMensalidade(int QtdeMensalidade) {
+        this.QtdeMensalidade = QtdeMensalidade;
+    }
+    
     
 }

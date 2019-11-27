@@ -32,6 +32,10 @@ public class Curso {
         turma.setCurso(this);
     }
 
+    public void setCargaHoraria(int CargaHoraria) {
+        this.CargaHoraria = CargaHoraria;
+    }
+
     public void setSigla(String Sigla) {
         this.Sigla = Sigla;
     }
@@ -48,9 +52,42 @@ public class Curso {
         this.ValorHoraInstrutor = ValorHoraInstrutor;
     }
 
+    public void setDataVigencia(String DataVigencia) {
+        this.DataVigencia = DataVigencia;
+    }
+
     public void setPrograma(String Programa) {
         this.Programa = Programa;
     }
+
+    public String getSigla() {
+        return Sigla;
+    }
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public int getCargaHoraria() {
+        return CargaHoraria;
+    }
+
+    public double getValor() {
+        return Valor;
+    }
+
+    public String getDataVigencia() {
+        return DataVigencia;
+    }
+
+    public double getValorHoraInstrutor() {
+        return ValorHoraInstrutor;
+    }
+
+    public String getPrograma() {
+        return Programa;
+    }
+    
     
     
 }
