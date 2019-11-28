@@ -7,24 +7,24 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Cadastro de Cidade</title>
+	<title>Cadastro de Pessoa</title>
 </h:head>
 
 <h:body>
-	<h1>Cadastro de Cidade</h1>
+	<h1>Cadastro de Pessoa</h1>
 	<h:form id="cadastro">
 		<!--  se nao colocado o messages as mensagens de erro de validacao e conversao do form nao aparecerao -->
 		<h:messages />
 
 	<!--  campos hidden é oculto só serve para ser alimentado no banco diretamente  -->
-		<h:inputHidden value="#{CidadeBean.Cidade.id}" />
+		<h:inputHidden value="#{CidadeBean.cidade.IDCidade}" />
 	
-		<h:outputLabel value="Usuario:" for="Usuario" />
-		<h:selectOneMenu id="codigo" style="width:210px"
-			value="#{pessoaBean.cidade.codigoUsuario}" required="true"
-			requiredMessage="Usuário deve ser selecionado">
+		<h:outputLabel value="Cidade:" for="Cidade" />
+		<h:selectOneMenu id="cidade_IDCidade" style="width:210px"
+			value="#{CidadeBean.cidade.IDCidade}" required="true"
+			requiredMessage="Cidade deve ser selecionado">
 			<f:selectItem itemLabel=" - Selecione uma opção - " itemValue="" />
-			<f:selectItems value="#{usuarioBean.usuarios}"/>
+			<f:selectItems value="#{CidadeBean.Cidade}"/>
 		</h:selectOneMenu>
 
 		<br style="clear: left;" />
@@ -32,13 +32,13 @@
 
 		<!--  validador size tamanho do quadrado, validateLength tamanho minimo e tamanho maximo -->
 
-		<h:outputLabel value="Opção Menu:" for="opcaoMenu" />
+		<!-- <h:outputLabel value="Opção Menu:" for="opcaoMenu" />
 		<h:inputText id="opcaoMenu" label="opcaoMenu" value="#{pessoaBean.cidade.opcaoMenu}" size="10">
 			<f:validateLength minimum="1" maximum="10" />
-		</h:inputText>
+		</h:inputText> -->
 
 
-		<br style="clear: left;" />
+		<!--  <br style="clear: left;" />
 		<br />
 
 		<legend>Escolher os direitos/permissões:</legend>
@@ -68,7 +68,7 @@
 
 
 		<br style="clear: left;" />
-		<br />
+		<br /> -->
 
 
 		<h:commandButton value="Salvar" action="#{pessoaBean.salvar}"  id="Salvar" />

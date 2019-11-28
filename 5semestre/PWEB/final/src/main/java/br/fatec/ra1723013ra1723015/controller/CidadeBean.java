@@ -89,7 +89,7 @@ public class CidadeBean {
 		// o contexto de salvar est� em /publico
 	}
 
-	public Cidade buscaPorLogin() {
+	public Cidade buscaIDCidade() {
 		CidadeDAO dao = new CidadeDAOHibernate();
 		Cidade Usu = dao.carregar(cidade.getIDCidade());
 		return  Usu;
@@ -102,8 +102,8 @@ public class CidadeBean {
 		// Cria objeto de modelo Faces
 		cidadeItem = new ArrayList<SelectItem>();
 		// cria objeto DAO
-		CidadeRN pais = new CidadeRN();
-		List<Cidade> cidade2 = pais.listar();
+		CidadeRN cRN = new CidadeRN();
+		List<Cidade> cidade2 = cRN.listar();
 		// Alimenta Modelo
 		for (Cidade c : cidade2) {
 			SelectItem selecao = new SelectItem(c.getIDCidade(), c.getNomeCidade());

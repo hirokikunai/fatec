@@ -16,19 +16,19 @@ public class PessoaBean {
 
 	private Pessoa pessoa = new Pessoa(); // propriedade do tipo Pessoa
 
-	private DataModel<Pessoa> listaPermissoes;
+	private DataModel<Pessoa> listaPessoas;
 
 	@SuppressWarnings("unchecked")
-	public DataModel<Pessoa> getlistaPermissoes() {
-		if (listaPermissoes == null) {
+	public DataModel<Pessoa> getlistaPessoas() {
+		if (listaPessoas == null) {
 			PessoaDAO dao = new PessoaDAOHibernate();
-			listaPermissoes = new ListDataModel<Pessoa>(dao.listar());
+			listaPessoas = new ListDataModel<Pessoa>(dao.listar());
 		}
-		return listaPermissoes;
+		return listaPessoas;
 	}
 
-	public void setlistaPermissoes(DataModel<Pessoa> listaPermissoes) {
-		this.listaPermissoes = listaPermissoes;
+	public void setlistaPessoas(DataModel<Pessoa> listaPessoas) {
+		this.listaPessoas = listaPessoas;
 	}
 
 	public Pessoa getPessoa() {
@@ -39,7 +39,7 @@ public class PessoaBean {
 		this.pessoa = pessoa;
 	}
 
-		// porta de entrada do formul�rio
+	// porta de entrada do formul�rio
 	// preparar cadastro novo pessoa
 	public String novo() {
 	this.pessoa = new Pessoa();
@@ -66,7 +66,7 @@ public class PessoaBean {
 		// o contexto de salvar est� em /publico
 	}
 
-	public Pessoa buscaPorLogin() {
+	public Pessoa buscaIDPessoa() {
 		PessoaDAO dao = new PessoaDAOHibernate();
 		Pessoa Permi = dao.carregar(pessoa.getIDPessoa());
 		return  Permi;

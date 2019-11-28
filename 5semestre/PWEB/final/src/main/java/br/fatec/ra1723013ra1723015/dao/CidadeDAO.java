@@ -10,7 +10,7 @@ public interface CidadeDAO {
 	public void atualizar(Cidade cidade);	
 	public void excluir(Cidade cidade);
 	public Cidade carregar(Integer codigo);
-	public Cidade buscarPorLogin(String login);
+	//public Cidade buscarPorLogin(String login);
 	public List listar();
 
 }

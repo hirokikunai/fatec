@@ -80,7 +80,7 @@ public class CidadeDAOHibernate implements CidadeDAO {
 	// usando hibernate query sql (parecida com sql)
 	// busca outros campos
 
-	public Cidade buscarPorLogin(String login) {
+	/* public Cidade buscarPorLogin(String login) {
 		this.session.getSessionFactory().openSession();
 		session.beginTransaction();
 		String hql = "select u from Cidade u where u.login=:login";
@@ -91,6 +91,6 @@ public class CidadeDAOHibernate implements CidadeDAO {
 													// chama-se uniqueresult
 													// senao usava
 													// consulta.list()
-	}
+	} */
 
 }
