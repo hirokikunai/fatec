@@ -13,63 +13,34 @@
 <h:body>
 	<h1>Cadastro de Pessoa</h1>
 	<h:form id="cadastro">
-		<!--  se nao colocado o messages as mensagens de erro de validacao e conversao do form nao aparecerao -->
-		<h:messages />
-
-	<!--  campos hidden é oculto só serve para ser alimentado no banco diretamente  -->
-		<h:inputHidden value="#{CidadeBean.cidade.IDCidade}" />
-	
+		
+		<h:inputHidden value="#{PessoaBean.pessoa.IDPessoa}" />
 		<h:outputLabel value="Cidade:" for="Cidade" />
 		<h:selectOneMenu id="cidade_IDCidade" style="width:210px"
-			value="#{CidadeBean.cidade.IDCidade}" required="true"
+			value="#{PessoaBean.cidade.cidade_IDCidade}" required="true"
 			requiredMessage="Cidade deve ser selecionado">
 			<f:selectItem itemLabel=" - Selecione uma opção - " itemValue="" />
-			<f:selectItems value="#{CidadeBean.Cidade}"/>
+			<f:selectItems value="#{CidadeBean.cidade.nomeCidade}"/>
 		</h:selectOneMenu>
-
-		<br style="clear: left;" />
-		<br />
-
-		<!--  validador size tamanho do quadrado, validateLength tamanho minimo e tamanho maximo -->
-
-		<!-- <h:outputLabel value="Opção Menu:" for="opcaoMenu" />
-		<h:inputText id="opcaoMenu" label="opcaoMenu" value="#{pessoaBean.cidade.opcaoMenu}" size="10">
-			<f:validateLength minimum="1" maximum="10" />
-		</h:inputText> -->
-
-
-		<!--  <br style="clear: left;" />
-		<br />
-
-		<legend>Escolher os direitos/permissões:</legend>
-		<br />
-		<h:outputText value="Inserir" />
-		<input type="checkbox" value="#{pessoaBean.pessoa.inserir}" id="Inserir" name="Opcao"/>
-
-		<br style="clear: left;" />
-		<br />
-
-		<h:outputText value="Alterar" />
-		<input type="checkbox" value="#{pessoaBean.pessoa.alterar}" id="Alterar"  name="Opcao" />
-
-
-		<br style="clear: left;" />
-		<br />
-
-		<h:outputText value="Excluir" />
-		<input type="checkbox" value="#{pessoaBean.pessoa.excluir}" id="Excluir"  name="Opcao"/>
-
-
-		<br style="clear: left;" />
-		<br />
-
-		<h:outputText value="Visualizar" />
-		<input type="checkbox" name="#{pessoaBean.pessoa.visualizar}" id="Visualizar"  />
-
-
-		<br style="clear: left;" />
-		<br /> -->
-
+		
+			<h:outputLabel value="Nome" for="NomeCidade" />
+			<h:inputText id="nomePessoa" label="Nome Cidade"
+				value="#{pessoaBean.pessoa.nomePessoa}" size="30" maxlength="30"
+				required="true" requiredMessage="Você não tem nome?">
+				<f:validateLength minimum="10" maximum="300" />
+			</h:inputText>
+			<h:outputLabel value="Endereco" for="enderecoPessoa" />
+			<h:inputText id="enderecoPessoa" label="Endereço"
+				value="#{pessoaBean.pessoa.enderecoPessoa}" size="30" maxlength="30"
+				required="true" requiredMessage="Você não tem Endereço?">
+				<f:validateLength minimum="10" maximum="30" />
+			</h:inputText>
+			<h:outputLabel value="CPF:" for="CPFPessoa" />
+			<h:inputText id="CPFPessoa" label="CPFPessoa"
+				value="#{pessoaBean.pessoa.CPFPessoa}" size="30" maxlength="30"
+				required="true" requiredMessage="Você não tem CPF">
+				<f:validateLength minimum="10" maximum="30" />
+			</h:inputText>
 
 		<h:commandButton value="Salvar" action="#{pessoaBean.salvar}"  id="Salvar" />
 

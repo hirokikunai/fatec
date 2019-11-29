@@ -37,7 +37,7 @@ public class HibernateUtil {
 	            .build();
 
 		List<Class<?>> classes = EntityScanner
-		            .scanPackages("br.fatec.exercicio9.controller").result();
+		            .scanPackages("br.fatec.ra1723013ra1723015.controller").result();
 		    MetadataSources metadataSources = new MetadataSources(standardRegistry);
 		    
 		    for (Class<?> annotatedClass : classes) {
