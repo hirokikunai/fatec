@@ -20,7 +20,7 @@
 			value="#{PessoaBean.cidade.cidade_IDCidade}" required="true"
 			requiredMessage="Cidade deve ser selecionado">
 			<f:selectItem itemLabel=" - Selecione uma opção - " itemValue="" />
-			<f:selectItems value="#{CidadeBean.cidade.nomeCidade}"/>
+			<f:selectItems value="#{CidadeBean.Cidades}"/>
 		</h:selectOneMenu>
 		
 			<h:outputLabel value="Nome" for="NomeCidade" />

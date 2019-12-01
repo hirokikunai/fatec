@@ -66,13 +66,5 @@ public class PessoaBean {
 		// o contexto de salvar est� em /publico
 	}
 
-	public Pessoa buscaIDPessoa() {
-		PessoaDAO dao = new PessoaDAOHibernate();
-		Pessoa Permi = dao.carregar(pessoa.getIDPessoa());
-		return  Permi;
-	//	return "publico/pessoaalt"; // tenta exibir pessoaalt.xhtml
-	
-	}
-
 
 }

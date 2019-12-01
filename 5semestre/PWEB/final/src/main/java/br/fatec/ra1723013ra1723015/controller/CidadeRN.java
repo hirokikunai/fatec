@@ -23,11 +23,6 @@ public class CidadeRN {
 		return this.cidadeDAO.carregar(codigo);
 	}
 
-	  // faz repasse metodo na classe DAO
-	public Cidade buscarPorLogin(String login) {
-		return this.cidadeDAO.buscarPorLogin(login);
-	}
-
 	// se nao existe salva, caso contrario atualiza
 	public void salvar(Cidade cidade) {
 		Integer codigo = cidade.getIDCidade();

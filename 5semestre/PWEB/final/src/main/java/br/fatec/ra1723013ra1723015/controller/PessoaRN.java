@@ -22,12 +22,7 @@ public class PessoaRN {
 	public Pessoa carregar(Integer codigo, String opcao) {
 		return this.pessoaDAO.carregar(codigo);
 	}
-
-	  // faz repasse metodo na classe DAO
-	public Pessoa buscarPorCodigoOpcao(Integer codigo, String opcao) {
-		return this.pessoaDAO.buscarPorPessoaOpcao(codigo,opcao);
-	}
-
+	
 	// se nao existe salva, caso contrario atualiza
 	public void salvar(Pessoa pessoa) {
 		Integer id = pessoa.getIDPessoa();

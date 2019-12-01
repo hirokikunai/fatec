@@ -49,14 +49,6 @@ public class CidadeBean {
 		this.cidade = cidade;
 	}
 
-	public String getConfirmarSenha() {
-		return confirmarSenha;
-	}
-
-	public void setConfirmarSenha(String confirmarSenha) {
-		this.confirmarSenha = confirmarSenha;
-	}
-
 	// porta de entrada do formul�rio
 	// preparar cadastro novo cidade
 	public String novo() {

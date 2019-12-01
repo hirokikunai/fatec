@@ -10,7 +10,6 @@ public interface PessoaDAO {
 	public void atualizar(Pessoa pessoa);	
 	public void excluir(Pessoa pessoa);
 	public Pessoa carregar(Integer codigo);
-	//public Pessoa buscarPorPessoaOpcao(Integer codigo, String opcao);
 	public List listar();
 
 }
